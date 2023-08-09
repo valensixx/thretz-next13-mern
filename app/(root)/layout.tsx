@@ -1,6 +1,5 @@
 import React from 'react';
 import '../globals.css';
-import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ClerkProvider } from '@clerk/nextjs';
 import { dark } from '@clerk/themes';
@@ -12,8 +11,8 @@ import Bottombar from '@/components/shared/Bottombar';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Threadz',
-  description: 'Threadz, Next13 MERN applicaton with React, Next JS, TypeScript and MongoDB.',
+  title: 'Thredz',
+  description: 'Thredz, Next13 MERN applicaton with React, Next JS, TypeScript and MongoDB.',
 }
 
 export default function RootLayout({

@@ -5,8 +5,8 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 
 export const metadata = {
-    title: 'Threadz',
-    description: 'Threadz, Next13 MERN applicaton with React, Next JS, TypeScript and MongoDB.',
+    title: 'Thredz',
+    description: 'Thredz, Next13 MERN applicaton with React, Next JS, TypeScript and MongoDB.',
 }
 
 const inter = Inter({ subsets: ['latin'] }); //Impoet the font we are using in the project!
