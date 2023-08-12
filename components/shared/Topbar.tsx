@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { SignedIn, SignOutButton } from "@clerk/nextjs";
 
 function Topbar(){
     return (
@@ -10,6 +11,16 @@ function Topbar(){
                     Thretz
                 </p>
             </Link>
+
+            <div className="flex items-center gap-1">
+                <div className="block md:hidden">
+                    <SignedIn>
+                        <SignOutButton>
+
+                        </SignOutButton>
+                    </SignedIn>
+                </div>
+            </div>
         </nav>
     )
 }
