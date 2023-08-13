@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata = {
   title: 'Thredz',
   description: 'Thredz, Next13 MERN applicaton with React, Next JS, TypeScript and MongoDB.',
-}
+};
 
 export default function RootLayout({
   children,
