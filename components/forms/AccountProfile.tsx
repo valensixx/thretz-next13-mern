@@ -41,7 +41,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
         }
     });
 
-    const handleImage = (e: ChangeEvent)=> {
+    const handleImage = (e: ChangeEvent, fieldChange: (value: string)=> void)=> {
         e.preventDefault();
     }
 
