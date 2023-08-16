@@ -17,6 +17,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ChangeEvent, useState } from "react";
+import { isBase64Image } from "@/lib/utils";
+import { useUploadThing } from '@/lib/uploadthing';
 
 
 interface Props {
@@ -68,6 +70,10 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     function onSubmit(values: z.infer<typeof UserValidation>) {
         const blob = values.profile_photo;
         const hasImageChanged = isBase64Image(blob);
+
+        if (hasImageChanged) {
+            const imgRes =
+        }
     }
 
     return (
