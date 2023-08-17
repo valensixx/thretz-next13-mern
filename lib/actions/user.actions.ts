@@ -4,14 +4,23 @@ import { connectToDB } from "../mongoose";
 import User from "../models/user.model";
 import { revalidatePath } from "next/cache";
 
-export async function updateUser(
-    userId: string,
-    username: string,
-    name: string,
-    bio: string,
-    image: string,
-    path: string,
-    ): Promise<void> {
+interface Params {
+    userId: string;
+    username: string;
+    name: string;
+    bio: string;
+    image: string;
+    path: string;
+}
+
+export async function updateUser({
+    userId,
+    username,
+    name,
+    bio,
+    image,
+    path,
+}: Params): Promise<void> {
     connectToDB();
 
     try {
@@ -26,11 +35,11 @@ export async function updateUser(
             },
             { upsert: true }
         );
-    
-        if(path === '/profile/edit'){  
-            revalidatePath(path); //update the cached data without waiting for revalidation prriod to expire.
+
+        if (path === '/profile/edit') {
+            revalidatePath(path); //update the cached data without waiting for revalidation period to expire.
         }
     } catch (error: any) {
-        throw new Error(`Failed to create/update user: ${error.message}`)
+        throw new Error(`Failed to create/update user: ${error.message}`);
     }
 }
