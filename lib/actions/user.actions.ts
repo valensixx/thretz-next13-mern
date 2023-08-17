@@ -4,6 +4,7 @@ import { connectToDB } from "../mongoose";
 import User from "../models/user.model";
 import { revalidatePath } from "next/cache";
 
+
 interface Params {
     userId: string;
     username: string;
@@ -24,22 +25,24 @@ export async function updateUser({
     connectToDB();
 
     try {
+        connectToDB();
+    
         await User.findOneAndUpdate(
-            { id: userId },
-            {
-                username: username.toLowerCase(),
-                name,
-                bio,
-                image,
-                onboarded: true,
-            },
-            { upsert: true }
+          { id: userId },
+          {
+            username: username.toLowerCase(),
+            name,
+            bio,
+            image,
+            onboarded: true,
+          },
+          { upsert: true }
         );
-
-        if (path === '/profile/edit') {
-            revalidatePath(path); //update the cached data without waiting for revalidation period to expire.
+    
+        if (path === "/profile/edit") {
+          revalidatePath(path);
         }
-    } catch (error: any) {
+      } catch (error: any) {
         throw new Error(`Failed to create/update user: ${error.message}`);
+      }
     }
-}
