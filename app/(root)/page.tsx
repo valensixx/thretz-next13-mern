@@ -2,6 +2,8 @@
 //import { UserButton } from "@clerk/nextjs";
 
 export default function Home() {
+ //const result = await fetchPosts();
+
   return (
     <main>
       <>
@@ -9,7 +11,7 @@ export default function Home() {
           Home
         </h1>
       </>
-
+    
     </main>
   )
 }
