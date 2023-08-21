@@ -1,15 +1,28 @@
+import Thread from "../models/thread.model";
+import User from "../models/user.model";
 import { connectToDB } from "../mongoose";
 
+
 interface Params {
-    text: string,
-    autor: string,
-    communityId: string | null,
-    path: string,
+  text: string,
+  author: string,
+  communityId: string | null,
+  path: string,
 }
 
-export async function createThread({ text, autor, communityId, path}: Params){
+export async function createThread({ text, author, communityId, path}: Params){
     connectToDB();
 
-     const creatrdThread = await Thread.create();
-}
+    const createdThread = await Thread.create({
+        text,
+        author,
+        commnity: null,
+     });
+
+     // Update User model
+    await User.findByIdAndUpdate(author, {
+        $push: { threads: createdThread._id },
+      });
+    }
+
     
