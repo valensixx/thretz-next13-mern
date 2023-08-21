@@ -57,6 +57,12 @@ export async function fetchPosts(pageNumber = 1, pageSize = 20) {
         }
     })
 
-    const totalPostCount = 
+    const totalPostCount = await Thread.countDocuments({ parentId:{ $in:[null, undefined]}})
+
+    const posts = await postQuery.exec();
+
+    const isNext = totalPostCount > skipAmount + posts.length;
+
+    return {posts, isNext}
 }
 
