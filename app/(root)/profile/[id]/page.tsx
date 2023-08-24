@@ -2,6 +2,7 @@ import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { fetchUser } from "@/lib/actions/user.actions";
 import ProfileHeader from "@/components/shared/ProfileHeader";
+import { Tabs, TabsList } from "@radix-ui/react-tabs";
 
 
 async function Page({params}:{params:{id: string}}){
@@ -22,6 +23,14 @@ async function Page({params}:{params:{id: string}}){
                 imgUrl={userInfo.imgUrl}
                 bio={userInfo.bio}
             />
+
+            <div className="mt-9">
+                <Tabs>
+                    <TabsList>
+                        
+                    </TabsList>
+                </Tabs>
+            </div>
         </section>
     )
 }
