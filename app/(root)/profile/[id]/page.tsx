@@ -15,7 +15,12 @@ async function Page({params}:{params:{id: string}}){
     return (
         <section>
             <ProfileHeader 
-
+                accountId={userInfo.id}
+                authUserId={user.id}
+                name={userInfo.name}
+                username={userInfo.username}
+                imgUrl={userInfo.imgUrl}
+                bio={userInfo.bio}
             />
         </section>
     )
